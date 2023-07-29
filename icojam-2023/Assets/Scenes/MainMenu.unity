@@ -204,7 +204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 72183538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1186542697}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Credits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &72183538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +442,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 609357697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1186542697}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Options
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &609357697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,7 +981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1744608486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1186542697}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1744608486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1066,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 87f1cce9f94318846980e993f1666cd7, type: 3}
     volume: 1
     pitch: 1.03
+    loop: 0
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: 1ffdaf15273af27419d21178378c3ce1, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &2033847533
 Transform:
