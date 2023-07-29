@@ -2623,7 +2623,7 @@ MonoBehaviour:
       - m_Target: {fileID: 607077866}
         m_TargetAssemblyTypeName: LineUpController, Assembly-CSharp
         m_MethodName: RemoveRandom
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3145,6 +3145,7 @@ MonoBehaviour:
   bg: {fileID: 1997110189}
   left: {fileID: 817075929}
   right: {fileID: 1920498656}
+  gameState: 0
 --- !u!1001 &1452302048
 PrefabInstance:
   m_ObjectHideFlags: 0

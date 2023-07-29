@@ -104,13 +104,34 @@ public class LineUpController : MonoBehaviour
         middleies.RemoveAt(i);
         righties.RemoveAt(i);
 
-        UpdateAllColumns();
+        if (suspects <= 7 && rightIndex >= 7)
+        {
+            leftIndex = 4;
+            middleIndex = 5;
+            rightIndex = 6;
+            rightButton.interactable = false;
+        }
+
+        if (suspects <= 6 && rightIndex >= 6)
+        {
+            leftIndex = 3;
+            middleIndex = 4;
+            rightIndex = 5;
+            rightButton.interactable = false;
+        }
+
 
         if (suspects <= 3)
         {
             leftButton.interactable = false;
             rightButton.interactable = false;
+
+            leftIndex = 0;
+            middleIndex = 1;
+            rightIndex = 2;
         }
+
+        UpdateAllColumns();
     }
 
     public void RemoveRandom(int index)
