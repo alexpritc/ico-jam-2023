@@ -6,53 +6,117 @@ using UnityEngine.UI;
 
 public class LineUpController : MonoBehaviour
 {
-    public Image posLeft;
-    public Image posMiddle;
-    public Image posRight;
+    public Button leftButton;
+    public Button rightButton;
 
-    /// <summary>
-    /// 11 sprites
-    /// </summary>
-    public Sprite[] sprites;
+    int leftIndex = 0;
+    int middleIndex = 1;
+    int rightIndex = 2;
 
-    int leftSprite = 0;
-    int middleSprite = 1;
-    int rightSprite = 2;
+    public List<GameObject> lefties;
+    public List<GameObject> middleies;
+    public List<GameObject> righties;
+
+    int suspects;
 
     // Start is called before the first frame update
     void Start()
     {
-        UpdateSprites();
-    }
-
-    void UpdateSprites()
-    {
-        posLeft.sprite = sprites[leftSprite];
-        posMiddle.sprite = sprites[middleSprite];
-        posRight.sprite = sprites[rightSprite];
+        UpdateAllColumns();
+        suspects = righties.Count;
     }
 
     public void MoveRight()
     {
-        if (rightSprite == sprites.Length-1)
+        if (rightIndex >= suspects - 1)
+        {
+            rightButton.interactable = false;
             return;
+        }
 
-        leftSprite++;
-        middleSprite++;
-        rightSprite++;
+        rightButton.interactable = true;
+        leftButton.interactable = true;
 
-        UpdateSprites();
+        leftIndex++;
+        middleIndex++;
+        rightIndex++;
+
+        UpdateAllColumns();
+
+        if (rightIndex >= suspects - 1)
+        {
+            rightButton.interactable = false;
+        }
     }
 
     public void MoveLeft()
     {
-        if (leftSprite <= 0)
+        if (leftIndex <= 0)
+        {
+            leftButton.interactable = false;
             return;
+        }
 
-        leftSprite--;
-        middleSprite--;
-        rightSprite--;
+        leftButton.interactable = true;
+        rightButton.interactable = true;
 
-        UpdateSprites();
+        leftIndex--;
+        middleIndex--;
+        rightIndex--;
+
+        UpdateAllColumns();
+
+        if (leftIndex <= 0)
+        {
+            leftButton.interactable = false;
+        }
+    }
+
+    void UpdateAllColumns()
+    {
+        SetColumn(lefties, leftIndex);
+        SetColumn(middleies, middleIndex);
+        SetColumn(righties, rightIndex);
+    }
+    private void SetColumn(List<GameObject> column, int index)
+    {
+        // hide all sprites
+        foreach (var go in column)
+        {
+            go.SetActive(false);
+        }
+
+        if (index < column.Count)
+            column[index].SetActive(true);
+    }
+
+    void RemoveFromAllColumns(int i)
+    {
+        suspects--;
+
+        Debug.Log(lefties[i].name);
+
+        lefties[i].SetActive(false);
+        middleies[i].SetActive(false);
+        righties[i].SetActive(false);  
+
+        lefties.RemoveAt(i);
+        middleies.RemoveAt(i);
+        righties.RemoveAt(i);
+
+        UpdateAllColumns();
+
+        if (suspects <= 3)
+        {
+            leftButton.interactable = false;
+            rightButton.interactable = false;
+        }
+    }
+
+    public void RemoveRandom(int index)
+    {
+        int i = (int)Random.Range(0f, suspects);
+        Debug.Log(i);
+        RemoveFromAllColumns(i);
     }
 }

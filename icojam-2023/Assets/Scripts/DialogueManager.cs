@@ -18,10 +18,14 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 
 	bool isTyping = false;
 
-	WaitForSeconds wait = new WaitForSeconds(0.1f);
+	bool isCutScene;
 
-	public void StartDialogue (Dialogue dialogue)
+	WaitForSeconds wait = new WaitForSeconds(0.025f);
+
+	public void StartDialogue (Dialogue dialogue, bool isCutScene = false)
 	{
+		this.isCutScene = isCutScene;
+
 		animator.SetBool("IsOpen", true);
 
 		nameText.text = dialogue.name;
@@ -69,11 +73,11 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
-	}
-
-	void ContinueDialogue()
-	{
-
+		
+		if (isCutScene)
+		{
+			GameManager.Instance.EndCutScene();
+		}
 	}
 
     public void OnPointerClick(PointerEventData eventData)
@@ -94,5 +98,4 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 		dialogueText.text = currentSentence;
 		isTyping = false;
     }
-
 }
