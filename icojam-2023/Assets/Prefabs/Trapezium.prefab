@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3823227991947656938}
   - component: {fileID: 4425669078944535748}
   - component: {fileID: 437771816927863083}
+  - component: {fileID: 2046559350748558447}
   m_Layer: 5
   m_Name: Trapezium
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineNumber: 2
   currentPosition: 1
+--- !u!95 &2046559350748558447
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4050534460290458344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6ae092277aaa8ea45b98ab86982e25a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
