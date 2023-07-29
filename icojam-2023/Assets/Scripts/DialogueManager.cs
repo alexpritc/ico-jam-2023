@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour {
+public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 
 	public TextMeshProUGUI nameText;
 	public TextMeshProUGUI dialogueText;
 
 	public Animator animator;
 
-	private Queue<string> sentences;
+	private Queue<string> sentences = new Queue<string>();
 
-	// Use this for initialization
-	void Start () {
-		sentences = new Queue<string>();
-	}
+    string currentSentence;
+
+	bool isTyping = false;
+
+	WaitForSeconds wait = new WaitForSeconds(0.1f);
 
 	public void StartDialogue (Dialogue dialogue)
 	{
@@ -24,14 +26,14 @@ public class DialogueManager : MonoBehaviour {
 
 		nameText.text = dialogue.name;
 
-		sentences.Clear();
+        sentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
 
-		DisplayNextSentence();
+        DisplayNextSentence();
 	}
 
 	public void DisplayNextSentence ()
@@ -42,18 +44,25 @@ public class DialogueManager : MonoBehaviour {
 			return;
 		}
 
-		string sentence = sentences.Dequeue();
+		currentSentence = sentences.Dequeue();
+
 		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
+		StartCoroutine(TypeSentence(currentSentence));
 	}
 
 	IEnumerator TypeSentence (string sentence)
 	{
+		isTyping = true;
+
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
-			yield return null;
+			if (dialogueText.text == currentSentence)
+			{
+				isTyping = false;
+			}
+			yield return wait;
 		}
 	}
 
@@ -61,5 +70,29 @@ public class DialogueManager : MonoBehaviour {
 	{
 		animator.SetBool("IsOpen", false);
 	}
+
+	void ContinueDialogue()
+	{
+
+	}
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+		if (isTyping)
+		{
+            FinishTypingSentence();
+        }
+		else
+		{
+			DisplayNextSentence();
+		}
+    }
+
+    public void FinishTypingSentence()
+    {
+		StopAllCoroutines();
+		dialogueText.text = currentSentence;
+		isTyping = false;
+    }
 
 }
