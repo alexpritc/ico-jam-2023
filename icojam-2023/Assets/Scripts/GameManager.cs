@@ -4,6 +4,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum GameState
+{
+    CUTSCENE, SELECTION
+}
+
+
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
@@ -18,6 +24,8 @@ public class GameManager : MonoBehaviour
     public Button left;
     public Button right;
 
+    public GameState gameState;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +33,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         bg.enabled = true;
+        gameState = GameState.CUTSCENE;
     }
 
     private void Start()

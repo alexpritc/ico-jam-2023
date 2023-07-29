@@ -5,7 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Suspect : MonoBehaviour, IPointerEnterHandler
+public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     public int lineNumber;
     public int currentPosition;
@@ -23,5 +23,14 @@ public class Suspect : MonoBehaviour, IPointerEnterHandler
         {
             animator.Play("Select");
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (GameManager.Instance.gameState == GameState.SELECTION)
+        {
+            // do something
+        }
+
     }
 }
