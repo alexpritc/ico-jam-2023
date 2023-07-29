@@ -5,7 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
+public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public int lineNumber;
     public int currentPosition;
@@ -19,10 +19,12 @@ public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Default"))
-        {
-            animator.Play("Select");
-        }
+        animator.SetBool("IsSelected", true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        animator.SetBool("IsSelected", false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
