@@ -1065,13 +1065,13 @@ MonoBehaviour:
   - name: Menu
     clip: {fileID: 8300000, guid: 87f1cce9f94318846980e993f1666cd7, type: 3}
     volume: 1
-    pitch: 1.03
-    loop: 0
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Click
     clip: {fileID: 8300000, guid: 1ffdaf15273af27419d21178378c3ce1, type: 3}
     volume: 1
-    pitch: 1.03
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!4 &2033847533
