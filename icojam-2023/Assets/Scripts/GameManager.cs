@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Dialogue startDialogue;
 
     string playerName = "Detective Donut";
-    string witnessName = "Ms. Seven";
+    string witnessName = "Ms Seven";
 
     public Image bg;
     public Button left;
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
 
         temp[0] = NewDialogue(playerName, new string[] { "…Thanks for coming, Mrs N. We know this can’t be easy." });
 
-        temp[1] = NewDialogue(witnessName, new string[] { "Please, it’s Ms. Seven now. And it's my pleasure. It'll feel good to finally finger the bastard that killed my husband." });
+        temp[1] = NewDialogue(witnessName, new string[] { "Please, it’s Ms Seven now. And it's my pleasure. It'll feel good to finally finger the bastard that killed my husband." });
 
         temp[2] = NewDialogue(playerName, new string[] { "All right. Let’s take a look at these sorry shapes…"});
 
@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
         eliminateThisSuspect = 4;
 
         //clueGO.SetActive(true);
-        clue.text = "They were a shape, not a number.";
+        clue.text = "The murderer was a shape, not a number.";
     }
 
     public void EnableSelectGameState()
@@ -425,7 +425,7 @@ public class GameManager : MonoBehaviour
 
         temp = new Dialogue[4];
 
-        temp[0] = NewDialogue("Circle", new string[] { "I was just happy to be here!." });
+        temp[0] = NewDialogue("Circle", new string[] { "I was just happy to be here!" });
 
         temp[1] = NewDialogue(playerName, new string[] { "Excellent Ms Seven, we’ve got it down to just eight suspects. What else can you tell us?" });
 
@@ -534,7 +534,7 @@ public class GameManager : MonoBehaviour
         eliminateThisSuspect = 9;
 
         //clueGO.SetActive(true);
-        clue.text = "The murderer had at least more than two sides.";
+        clue.text = "The murderer had more than two sides.";
     }
 
     //Hexagon
