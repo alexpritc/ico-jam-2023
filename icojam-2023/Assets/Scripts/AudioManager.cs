@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
     }
 
     // for keeping track of it
-    private float masterVol = 0.5f;
+    private float masterVol = 1f;
     private float musicVol = 0.5f;
     private float SFXVol = 0.5f;
 
