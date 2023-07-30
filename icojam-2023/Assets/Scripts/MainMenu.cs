@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        FindObjectOfType<AudioManager>().Play("Click");
+        FindObjectOfType<AudioManager>().Play("Sting");
         SceneManager.LoadSceneAsync(1);
     }
 
@@ -30,5 +30,10 @@ public class MainMenu : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Click");
         Application.Quit();
+    }
+
+    public void Click()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 }
