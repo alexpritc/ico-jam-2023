@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -50,6 +51,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject clueGO;
     public TextMeshProUGUI clue;
+
+    public int lives = 3;
+
+    public GameObject threeBadges;
+    public GameObject twoBadges;
+    public GameObject oneBadges;
+
+    public GameObject killerFound;
+    public GameObject badgesLost;
 
     // Start is called before the first frame update
     void Awake()
@@ -207,7 +217,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                WrongSuspectMessage();
+                ShowBadges();
             }
         }
         else
@@ -252,22 +262,73 @@ public class GameManager : MonoBehaviour
                 HidePopUp();
                 // trigger try again dialogue
 
-                WrongSuspectMessage();
+                ShowBadges();
+                //WrongSuspectMessage();
             }
         }
     }
 
-    void WrongSuspectMessage()
+    void ShowBadges()
+    {
+        string message;
+
+        if (lives == 3)
+        {
+            threeBadges.SetActive(true);
+            message = "That's a costly error, Detective. I'll have to take one of your badges for that.";
+        }
+        else if (lives == 2)
+        {
+            twoBadges.SetActive(true);
+            message = "Another mistake, Detective? One more and you're off the force.";
+        }
+        else
+        {
+            oneBadges.SetActive(true);
+            message = "That's it. Your career is over. I'm not giving you anymore chances.";
+        }
+
+        WrongSuspectMessage(message);
+
+        lives--;
+    }
+
+    void WrongSuspectMessage(string message)
     {
         StopAllCoroutines();
         gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[1];
 
-        temp[0] = NewDialogue(witnessName, new string[] { "No, that’s not right. Try again Detective. " });
+        temp[0] = NewDialogue("Cpt. Fractal", new string[] { message });
 
         dialogueManager.canNowSelect = true;
         StartCoroutine(dialogueManager.StartConversation(temp));
+    }
+
+    public void BackToGame(GameObject go)
+    {
+        go.SetActive(false);
+        gameState = GameState.SELECTION;
+    }
+
+    public void GameOver()
+    {
+        //gameState = GameState.CUTSCENE;
+
+        if (lives <= 0)
+        {
+            ShowGameOverScreen(badgesLost);
+        }
+        else
+        {
+            ShowGameOverScreen(killerFound);
+        }
+    }
+
+    void ShowGameOverScreen(GameObject go)
+    {
+        go.SetActive(true);
     }
 
     // Circle
@@ -505,6 +566,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(dialogueManager.StartConversation(temp));
 
         // game over?
+        GameOver();
 
     }
 
@@ -536,10 +598,16 @@ public class GameManager : MonoBehaviour
         StartCoroutine(dialogueManager.StartConversation(temp));
 
         // game over?
+        GameOver();
     }
 
     void EnableSeven()
     {
         seven.GetComponent<Suspect>().enabled = true;
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
