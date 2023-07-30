@@ -22,11 +22,24 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 
     private Queue<Dialogue> conversations = new Queue<Dialogue>();
 
-
     // --------------------------
     public bool isIntro;
     public bool isUseArrowsClue;
     public bool canNowSelect;
+
+    private Button button;
+
+	public void AssignButton(Button newButton)
+	{
+		button = newButton;
+		button.interactable = false;
+	}
+
+	public void UpdateButton()
+	{
+		button.interactable = true;
+		button = null;
+	}
 
     public IEnumerator StartConversation(Dialogue[] conversation)
 	{
@@ -122,6 +135,11 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 			GameManager.Instance.EnableSelectGameState();
 			canNowSelect = false;
         }
+
+		if (button != null)
+		{
+			button.interactable = true;
+		}
     }
 
     public void OnPointerClick(PointerEventData eventData)

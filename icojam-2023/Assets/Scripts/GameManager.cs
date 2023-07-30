@@ -61,6 +61,13 @@ public class GameManager : MonoBehaviour
     public GameObject killerFound;
     public GameObject badgesLost;
 
+    public Sprite brokenBadge;
+
+    public Image badgeThree;
+    public Image badgeTwo;
+    public Image badgeOne;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -274,16 +281,19 @@ public class GameManager : MonoBehaviour
 
         if (lives == 3)
         {
+            badgeThree.sprite = brokenBadge;
             threeBadges.SetActive(true);
             message = "That's a costly error, Detective. I'll have to take one of your badges for that.";
         }
         else if (lives == 2)
         {
+            badgeTwo.sprite = brokenBadge;
             twoBadges.SetActive(true);
             message = "Another mistake, Detective? One more and you're off the force.";
         }
         else
         {
+            badgeOne.sprite = brokenBadge;
             oneBadges.SetActive(true);
             message = "That's it. Your career is over. I'm not giving you anymore chances.";
         }
