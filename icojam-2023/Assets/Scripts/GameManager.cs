@@ -400,10 +400,9 @@ public class GameManager : MonoBehaviour
 
         temp[0] = NewDialogue("Four", new string[] { "Tee-hee-hee! Hee-hee, hee-hee!" });
 
-        temp[1] = NewDialogue(playerName, new string[] { "Apologies. That guy always gets into these things. He’s a little scamp. Can you tell us anything else?" });
+        temp[1] = NewDialogue(playerName, new string[] { "Apologies. That guy always gets into these things. He’s a little scamp. Can you tell us anything else that could narrow down the number of suspects?" });
 
-        temp[2] = NewDialogue(witnessName, new string[] { "Well… Something you should know about me… I have some low-level psychic abilities.",
-        "And when that awful shape was killing my husband, I just got the overwhelming feeling that the number 3.14159265359 meant *nothing* to them."});
+        temp[2] = NewDialogue(witnessName, new string[] { "Well… I think I caught a glimpse of at least one straight line. So he wasn't completely round."});
 
         temp[3] = NewDialogue(" ", new string[] { "[Find who this statement excludes and dismiss them from the lineup.]" });
 
@@ -414,7 +413,7 @@ public class GameManager : MonoBehaviour
         eliminateThisSuspect = 1;
 
         //clueGO.SetActive(true);
-        clue.text = "3.14159265359 means nothing to them.";
+        clue.text = "The murderer had at least one straight line.";
     }
 
     
@@ -426,7 +425,7 @@ public class GameManager : MonoBehaviour
 
         temp = new Dialogue[4];
 
-        temp[0] = NewDialogue("Circle", new string[] { "3.14159265359 means *everything* to me. " });
+        temp[0] = NewDialogue("Circle", new string[] { "I was just happy to be here!." });
 
         temp[1] = NewDialogue(playerName, new string[] { "Excellent Ms Seven, we’ve got it down to just eight suspects. What else can you tell us?" });
 
@@ -500,7 +499,7 @@ public class GameManager : MonoBehaviour
         eliminateThisSuspect = 3;
 
         //clueGO.SetActive(true);
-        clue.text = "Any shape with odd sides is not the murderer.";
+        clue.text = "The murderer had an even number of sides.";
     }
 
     
@@ -535,7 +534,7 @@ public class GameManager : MonoBehaviour
         eliminateThisSuspect = 9;
 
         //clueGO.SetActive(true);
-        clue.text = "The murderer had more than two sides.";
+        clue.text = "The murderer had at least more than two sides.";
     }
 
     //Hexagon
@@ -574,7 +573,7 @@ public class GameManager : MonoBehaviour
         
         temp[2] = NewDialogue(witnessName, new string[] { "Y-yes, Detective. I just need a moment. Going back to that place, even mentally… It was just so much." });
 
-        temp[3] = NewDialogue(playerName, new string[] { "I understand, Ms Seven. You’ve done well. So very well. Just three left." });
+        temp[3] = NewDialogue(playerName, new string[] { "I understand, Ms Seven. Just three left now. Are you able to keep going?" });
 
         temp[4] = NewDialogue(witnessName, new string[] { "My poor husband… He was such a proud number Nine.",
             "So tall, so grand. The best of us, you know? The biggest.", "But when I saw him there… Eaten… All gobbled up… He… He… He…" });
