@@ -94,8 +94,6 @@ public class LineUpController : MonoBehaviour
     {
         suspects--;
 
-        Debug.Log(lefties[i].name);
-
         lefties[i].SetActive(false);
         middleies[i].SetActive(false);
         righties[i].SetActive(false);  
@@ -134,10 +132,20 @@ public class LineUpController : MonoBehaviour
         UpdateAllColumns();
     }
 
-    public void RemoveRandom(int index)
+    public void Remove(int lineNumber)
     {
-        int i = (int)Random.Range(0f, suspects);
-        Debug.Log(i);
-        RemoveFromAllColumns(i);
+        int posNumber = 0;
+        // check one list
+
+        for (int i = 0; i < lefties.Count; i++)
+        {
+            if (lefties[i].GetComponent<Suspect>().lineNumber == lineNumber)
+            {
+                posNumber = i;
+                continue;
+            }
+        }
+ 
+        RemoveFromAllColumns(posNumber);
     }
 }

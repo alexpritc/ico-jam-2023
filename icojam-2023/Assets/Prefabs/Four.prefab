@@ -91,6 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineNumber: 4
   currentPosition: 3
+  defaultSprite: {fileID: 21300000, guid: a3a48b109cd53034a986a86a8d7c92b8, type: 3}
+  selectedSprite: {fileID: 21300000, guid: ea97cb43fe4a59743a1f5356e347b0ef, type: 3}
 --- !u!95 &1049069584820212572
 Animator:
   serializedVersion: 5

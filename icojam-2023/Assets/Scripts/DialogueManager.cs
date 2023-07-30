@@ -18,14 +18,43 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 
 	bool isTyping = false;
 
-	bool isCutScene;
-
 	WaitForSeconds wait = new WaitForSeconds(0.025f);
 
-	public void StartDialogue (Dialogue dialogue, bool isCutScene = false)
-	{
-		this.isCutScene = isCutScene;
+    private Queue<Dialogue> conversations = new Queue<Dialogue>();
 
+
+    // --------------------------
+    public bool isIntro;
+    public bool isUseArrowsClue;
+    public bool canNowSelect;
+
+    public IEnumerator StartConversation(Dialogue[] conversation)
+	{
+        conversations.Clear();
+
+        foreach (Dialogue dialogue in conversation) {	
+			conversations.Enqueue(dialogue);
+		}
+
+        StartNextConversation();
+		yield return null;
+    }
+
+	public void StartNextConversation()
+	{
+        if (conversations.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
+        Dialogue currentDialogue = conversations.Dequeue();
+
+        StartNextDialogue(currentDialogue);
+    }
+
+	public void StartNextDialogue (Dialogue dialogue)
+	{
 		animator.SetBool("IsOpen", true);
 
 		nameText.text = dialogue.name;
@@ -44,7 +73,7 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 	{
 		if (sentences.Count == 0)
 		{
-			EndDialogue();
+            StartNextConversation();
 			return;
 		}
 
@@ -72,13 +101,28 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 
 	void EndDialogue()
 	{
-		animator.SetBool("IsOpen", false);
+		StopAllCoroutines();
+
+        animator.SetBool("IsOpen", false);
 		
-		if (isCutScene)
+		if (isIntro)
 		{
-			GameManager.Instance.EndCutScene();
+			GameManager.Instance.EndFirstScene();
+			isIntro = false;
 		}
-	}
+
+		if (isUseArrowsClue)
+		{
+            GameManager.Instance.EnableFirstButton();
+            isUseArrowsClue = false;
+		}
+
+		if (canNowSelect)
+		{
+			GameManager.Instance.EnableSelectGameState();
+			canNowSelect = false;
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
