@@ -26,20 +26,11 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
     public bool isIntro;
     public bool isUseArrowsClue;
     public bool canNowSelect;
-
-    private Button button;
-
-	public void AssignButton(Button newButton)
-	{
-		button = newButton;
-		button.interactable = false;
-	}
-
-	public void UpdateButton()
-	{
-		button.interactable = true;
-		button = null;
-	}
+	public bool threeBadges;
+	public bool twoBadges;
+	public bool oneBadges;
+	public bool gameOverWon;
+	public bool gameOverLose;
 
     public IEnumerator StartConversation(Dialogue[] conversation)
 	{
@@ -136,10 +127,32 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 			canNowSelect = false;
         }
 
-		if (button != null)
+		if (threeBadges)
 		{
-			button.interactable = true;
-		}
+            GameManager.Instance.EndBadgesThree();
+            threeBadges = false;
+        }
+		else if (twoBadges)
+		{
+            GameManager.Instance.EndBadgesTwo();
+            twoBadges = false;
+        }
+        else if (oneBadges)
+        {
+            GameManager.Instance.EndBadgesOne();
+            oneBadges = false;
+        }
+
+		if (gameOverWon)
+		{
+            GameManager.Instance.EndGameOverWin();
+            gameOverWon = false;
+        }
+        else if (gameOverLose)
+        {
+            GameManager.Instance.EndGameOverLose();
+            gameOverLose = false;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -67,6 +67,13 @@ public class GameManager : MonoBehaviour
     public Image badgeTwo;
     public Image badgeOne;
 
+    public GameObject badgesThreeButton;
+    public GameObject badgesTwoButton;
+    public GameObject badgesOneButton;
+
+    public GameObject gameOverWonButton;
+    public GameObject gameOverLoseButton;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -100,8 +107,32 @@ public class GameManager : MonoBehaviour
 
     public void EndFirstScene()
     {
-        //bg.enabled = false;
         enterRoomButton.SetActive(true);
+    }
+
+    public void EndBadgesThree()
+    {
+        badgesThreeButton.SetActive(true);   
+    }
+
+    public void EndBadgesTwo()
+    {
+        badgesTwoButton.SetActive(true);
+    }
+
+    public void EndBadgesOne()
+    {
+        badgesOneButton.SetActive(true);
+    }
+
+    public void EndGameOverWin()
+    {
+        gameOverWonButton.SetActive(true);
+    }
+
+    public void EndGameOverLose()
+    {
+        gameOverLoseButton.SetActive(true);
     }
 
     public void Main()
@@ -312,6 +343,19 @@ public class GameManager : MonoBehaviour
 
         temp[0] = NewDialogue("Cpt. Fractal", new string[] { message });
 
+        if (lives == 3)
+        {
+            dialogueManager.threeBadges = true;
+        }
+        else if (lives == 2)
+        {
+            dialogueManager.twoBadges = true;
+        }
+        else if (lives == 1)
+        {
+            dialogueManager.oneBadges = true;
+        }
+
         dialogueManager.canNowSelect = true;
         StartCoroutine(dialogueManager.StartConversation(temp));
     }
@@ -328,10 +372,12 @@ public class GameManager : MonoBehaviour
 
         if (lives <= 0)
         {
+            //dialogueManager.gameOverLose = true;
             ShowGameOverScreen(badgesLost);
         }
         else
         {
+            dialogueManager.gameOverWon = true;
             ShowGameOverScreen(killerFound);
         }
     }
@@ -602,7 +648,6 @@ public class GameManager : MonoBehaviour
         temp[5] = NewDialogue("Cpt. Fractal", new string[] { "Don’t mess me around, Detective. What question? What are you talking about?" });
 
         temp[6] = NewDialogue(playerName, new string[] { "Why was Six… Afraid of Seven?" });
-
 
         dialogueManager.canNowSelect = true;
         StartCoroutine(dialogueManager.StartConversation(temp));
