@@ -73,6 +73,14 @@ public class GameManager : MonoBehaviour
         right.onClick.AddListener(FirstClue);
     }
 
+    private void Update()
+    {
+        if (gameState== GameState.SELECTION) {
+            clueGO.SetActive(true);
+        }
+        else { clueGO.SetActive(false); }
+    }
+
     public void EndFirstScene()
     {
         //bg.enabled = false;
@@ -137,7 +145,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 4
         eliminateThisSuspect = 4;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "They were a shape, not a number.";
     }
 
@@ -285,7 +293,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 1
         eliminateThisSuspect = 1;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "3.14159265359 means nothing to them.";
     }
 
@@ -313,7 +321,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 10
         eliminateThisSuspect = 10;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "Trigonophobia is the fear of which shape?";
     }
 
@@ -345,7 +353,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 7
         eliminateThisSuspect = 7;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "The murderer was vertically symmetrical.";
     }
 
@@ -371,7 +379,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 3
         eliminateThisSuspect = 3;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "Any shape with odd sides is not the murderer.";
     }
 
@@ -406,7 +414,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 9
         eliminateThisSuspect = 9;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "The murderer had more than two sides.";
     }
 
@@ -428,7 +436,7 @@ public class GameManager : MonoBehaviour
         // Player needs to select 5;
         eliminateThisSuspect = 5;
 
-        clueGO.SetActive(true);
+        //clueGO.SetActive(true);
         clue.text = "The murderer had four sides.";
     }
 
@@ -471,7 +479,7 @@ public class GameManager : MonoBehaviour
 
         // Player needs to select the murderer
 
-        clueGO.SetActive(true);
+        //.SetActive(true);
         clue.text = "The murderer had exactly one pair of parallel sides.";
 
         // enable 7

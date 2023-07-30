@@ -33,10 +33,17 @@ public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (GameManager.Instance.gameState == GameState.SELECTION)
         {
-            img.sprite = selectedSprite;
             if (!isSeven)
             {
                 animator.SetBool("IsSelected", true);
+                img.sprite = selectedSprite;
+            }
+            else
+            {
+                if (GameManager.Instance.finalThree)
+                {
+                    img.sprite = selectedSprite;
+                }
             }
         }
     }
