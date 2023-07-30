@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public enum GameState
 {
-    CUTSCENE, SELECTION, CONFIRM
+    CUTSCENE, SELECTION, CONFIRM, MENU
 }
 
 
@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverWonButton;
     public GameObject gameOverLoseButton;
-
 
     // Start is called before the first frame update
     void Awake()
@@ -180,7 +179,7 @@ public class GameManager : MonoBehaviour
     void FirstClueDialogue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[3];
 
@@ -341,7 +340,7 @@ public class GameManager : MonoBehaviour
     void WrongSuspectMessage(string message)
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[1];
 
@@ -372,7 +371,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         if (lives <= 0)
         {
@@ -395,7 +394,7 @@ public class GameManager : MonoBehaviour
     void SecondClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[4];
 
@@ -423,7 +422,7 @@ public class GameManager : MonoBehaviour
     void ThirdClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[4];
 
@@ -450,7 +449,7 @@ public class GameManager : MonoBehaviour
     void FourthClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[6];
 
@@ -482,7 +481,7 @@ public class GameManager : MonoBehaviour
     void FifthClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[4];
 
@@ -509,7 +508,7 @@ public class GameManager : MonoBehaviour
     void SixthClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[7];
 
@@ -543,7 +542,7 @@ public class GameManager : MonoBehaviour
     void SeventhClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[2];
 
@@ -565,7 +564,7 @@ public class GameManager : MonoBehaviour
     void EighthClue()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[10];
 
@@ -611,7 +610,7 @@ public class GameManager : MonoBehaviour
     void AccuseTrapezium()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[3];
 
@@ -633,7 +632,7 @@ public class GameManager : MonoBehaviour
     void AccuseSeven()
     {
         StopAllCoroutines();
-        //gameState = GameState.CUTSCENE;
+        gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[7];
 
@@ -667,6 +666,7 @@ public class GameManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        gameState = GameState.MENU;
         SceneManager.LoadScene("MainMenu");
     }
 }

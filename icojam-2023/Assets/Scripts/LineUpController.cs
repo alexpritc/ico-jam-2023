@@ -37,9 +37,9 @@ public class LineUpController : MonoBehaviour
         rightButton.interactable = true;
         leftButton.interactable = true;
 
-        leftIndex++;
-        middleIndex++;
-        rightIndex++;
+        leftIndex+=3;
+        middleIndex+=3;
+        rightIndex+=3;
 
         UpdateAllColumns();
 
@@ -60,9 +60,9 @@ public class LineUpController : MonoBehaviour
         leftButton.interactable = true;
         rightButton.interactable = true;
 
-        leftIndex--;
-        middleIndex--;
-        rightIndex--;
+        leftIndex-=3;
+        middleIndex-=3;
+        rightIndex-=3;
 
         UpdateAllColumns();
 
