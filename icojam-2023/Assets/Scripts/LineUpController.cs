@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -86,7 +88,7 @@ public class LineUpController : MonoBehaviour
             go.SetActive(false);
         }
 
-        if (index < column.Count)
+        if (index < column.Count && index > -1)
             column[index].SetActive(true);
     }
 
@@ -94,29 +96,74 @@ public class LineUpController : MonoBehaviour
     {
         suspects--;
 
+        // if divisible by 3
+        // 3, 6, 9
+        if (i % 3 == 0)
+        {
+
+        }
+
+        //if (lefties[i].activeInHierarchy)
+        //{
+        //    leftIndex++;
+        //    middleIndex++;
+        //    rightIndex++;
+        //}
+        //else if (middleies[i].activeInHierarchy)
+        //{
+        //    //leftIndex++;
+        //    middleIndex++;
+        //    rightIndex--;
+        //}
+        //else if (righties[i].activeInHierarchy)
+        //{
+        //    leftIndex--;
+        //    middleIndex--;
+        //    rightIndex++;
+        //}
+
         lefties[i].SetActive(false);
         middleies[i].SetActive(false);
-        righties[i].SetActive(false);  
+        righties[i].SetActive(false);
+
+        // find out which column has i in currently
+
+        // if its left, the other 2 down 1
+        // if its middle, move right,
+        // if its right, move right
 
         lefties.RemoveAt(i);
         middleies.RemoveAt(i);
         righties.RemoveAt(i);
 
-        if (suspects <= 7 && rightIndex >= 7)
-        {
-            leftIndex = 4;
-            middleIndex = 5;
-            rightIndex = 6;
+        //leftIndex--;
+        //middleIndex--;
+        //rightIndex--;
+
+        if (rightIndex >= righties.Count - 1){
             rightButton.interactable = false;
         }
 
-        if (suspects <= 6 && rightIndex >= 6)
+        if (leftIndex <= -1)
         {
-            leftIndex = 3;
-            middleIndex = 4;
-            rightIndex = 5;
-            rightButton.interactable = false;
+            leftButton.interactable = false;
         }
+
+        //if (suspects <= 7 && rightIndex >= 7)
+        //{
+        //    leftIndex = 4;
+        //    middleIndex = 5;
+        //    rightIndex = 6;
+        //    rightButton.interactable = false;
+        //}
+
+        //if (suspects <= 6 && rightIndex >= 6)
+        //{
+        //    leftIndex = 3;
+        //    middleIndex = 4;
+        //    rightIndex = 5;
+        //    rightButton.interactable = false;
+        //}
 
 
         if (suspects <= 3)

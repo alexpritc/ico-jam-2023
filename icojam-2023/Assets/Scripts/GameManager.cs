@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         dialogueManager = FindObjectOfType<DialogueManager>();
 

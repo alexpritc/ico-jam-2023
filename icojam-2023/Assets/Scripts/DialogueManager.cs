@@ -175,5 +175,6 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 		StopAllCoroutines();
 		dialogueText.text = currentSentence;
 		isTyping = false;
+        AudioManager.instance.Play("Type");
     }
 }
