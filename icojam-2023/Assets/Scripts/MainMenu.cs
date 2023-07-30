@@ -5,35 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void Start()
-    {
-        FindObjectOfType<AudioManager>().Play("Menu");
-    }
-
     public void PlayGame()
     {
-        FindObjectOfType<AudioManager>().Play("Sting");
+        AudioManager.instance.Play("Sting");
         SceneManager.LoadSceneAsync(1);
     }
 
     public void Options()
     {
-        FindObjectOfType<AudioManager>().Play("Click");
+        AudioManager.instance.Play("Click");
     }
 
     public void Credits()
     {
-        FindObjectOfType<AudioManager>().Play("Click");
+        AudioManager.instance.Play("Click");
     }
 
     public void Exit()
     {
-        FindObjectOfType<AudioManager>().Play("Click");
+        AudioManager.instance.Play("Click");
         Application.Quit();
     }
 
     public void Click()
     {
-        FindObjectOfType<AudioManager>().Play("Click");
+        AudioManager.instance.Play("Click");
     }
 }

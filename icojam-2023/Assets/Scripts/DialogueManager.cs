@@ -99,9 +99,12 @@ public class DialogueManager : MonoBehaviour, IPointerClickHandler {
 			{
 				isTyping = false;
 			}
-			yield return wait;
+            AudioManager.instance.Play("Char");
+            yield return wait;
 		}
-	}
+
+        AudioManager.instance.Play("Type");
+    }
 
 	void EndDialogue()
 	{

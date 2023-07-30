@@ -37,12 +37,14 @@ public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             {
                 animator.SetBool("IsSelected", true);
                 img.sprite = selectedSprite;
+                AudioManager.instance.Play("Click");
             }
             else
             {
                 if (GameManager.Instance.finalThree)
                 {
                     img.sprite = selectedSprite;
+                    AudioManager.instance.Play("Click");
                 }
             }
         }
@@ -63,6 +65,7 @@ public class Suspect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         {
             // show pop up
             GameManager.Instance.ShowPopUp(lineNumber);
+            AudioManager.instance.Play("Click");
         }
 
     }

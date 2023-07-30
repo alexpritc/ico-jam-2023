@@ -100,7 +100,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (gameState== GameState.SELECTION) {
-            clueGO.SetActive(true);
+            if (!clueGO.activeInHierarchy)
+            {
+                clueGO.SetActive(true);
+                AudioManager.instance.Play("Sting");
+            }
         }
         else { clueGO.SetActive(false); }
     }
@@ -176,7 +180,7 @@ public class GameManager : MonoBehaviour
     void FirstClueDialogue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[3];
 
@@ -337,7 +341,7 @@ public class GameManager : MonoBehaviour
     void WrongSuspectMessage(string message)
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[1];
 
@@ -391,7 +395,7 @@ public class GameManager : MonoBehaviour
     void SecondClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[4];
 
@@ -419,7 +423,7 @@ public class GameManager : MonoBehaviour
     void ThirdClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[4];
 
@@ -446,7 +450,7 @@ public class GameManager : MonoBehaviour
     void FourthClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[6];
 
@@ -478,7 +482,7 @@ public class GameManager : MonoBehaviour
     void FifthClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[4];
 
@@ -505,7 +509,7 @@ public class GameManager : MonoBehaviour
     void SixthClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[7];
 
@@ -539,7 +543,7 @@ public class GameManager : MonoBehaviour
     void SeventhClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[2];
 
@@ -561,7 +565,7 @@ public class GameManager : MonoBehaviour
     void EighthClue()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[10];
 
@@ -607,7 +611,7 @@ public class GameManager : MonoBehaviour
     void AccuseTrapezium()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[3];
 
@@ -629,7 +633,7 @@ public class GameManager : MonoBehaviour
     void AccuseSeven()
     {
         StopAllCoroutines();
-        gameState = GameState.CUTSCENE;
+        //gameState = GameState.CUTSCENE;
 
         temp = new Dialogue[7];
 
