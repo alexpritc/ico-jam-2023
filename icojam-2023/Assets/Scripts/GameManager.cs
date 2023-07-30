@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverWonButton;
     public GameObject gameOverLoseButton;
 
+    public GameObject ps;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -660,6 +662,7 @@ public class GameManager : MonoBehaviour
 
     void EnableSeven()
     {
+        ps.SetActive(true);
         seven.GetComponent<Suspect>().enabled = true;
     }
 
