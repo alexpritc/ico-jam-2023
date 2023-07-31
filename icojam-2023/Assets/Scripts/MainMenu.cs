@@ -23,8 +23,10 @@ public class MainMenu : MonoBehaviour
 
     public void Exit()
     {
+#if UNITY_STANDALONE_WIN
         AudioManager.instance.Play("Click");
         Application.Quit();
+#endif
     }
 
     public void Click()

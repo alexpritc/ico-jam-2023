@@ -402,7 +402,8 @@ public class GameManager : MonoBehaviour
 
         temp[0] = NewDialogue("Four", new string[] { "Tee-hee-hee! Hee-hee, hee-hee!" });
 
-        temp[1] = NewDialogue(playerName, new string[] { "Apologies. That guy always gets into these things. He’s a little scamp. Can you tell us anything else that could narrow down the number of suspects?" });
+        temp[1] = NewDialogue(playerName, new string[] { "Apologies. That guy always gets into these things. He’s a little scamp.", 
+            "Can you tell us anything else that could narrow down the number of suspects?" });
 
         temp[2] = NewDialogue(witnessName, new string[] { "Well… I think I caught a glimpse of at least one straight line. So he wasn't completely round."});
 
