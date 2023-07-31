@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 72183539}
   - component: {fileID: 72183538}
   - component: {fileID: 72183537}
+  - component: {fileID: 72183540}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -313,7 +314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225.0445, y: -97.54059}
+  m_AnchoredPosition: {x: 134, y: -97.54059}
   m_SizeDelta: {x: 353, y: 527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72183537
@@ -434,6 +435,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72183535}
   m_CullTransparentMesh: 1
+--- !u!114 &72183540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72183535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670b093966cdb5b44b2f088efcec3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: e34e0c2855847304ca3d748d287dd958, type: 3}
+  hoverSprite: {fileID: 21300000, guid: 0119761802841cb4484ce545f77a0d07, type: 3}
 --- !u!1 &98154316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,7 +1588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390.4223, y: -156.07394}
+  m_AnchoredPosition: {x: -321, y: -156.07394}
   m_SizeDelta: {x: 188, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345908917
@@ -2102,7 +2117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -234.68893, y: -14.607269}
+  m_AnchoredPosition: {x: -103, y: -14.607269}
   m_SizeDelta: {x: 221, y: 838}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &447234579
@@ -2191,6 +2206,7 @@ GameObject:
   - component: {fileID: 609357698}
   - component: {fileID: 609357697}
   - component: {fileID: 609357696}
+  - component: {fileID: 609357699}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -2214,7 +2230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -234.68893, y: -14.607269}
+  m_AnchoredPosition: {x: -103, y: -14.607269}
   m_SizeDelta: {x: 221, y: 838}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &609357696
@@ -2335,6 +2351,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609357694}
   m_CullTransparentMesh: 1
+--- !u!114 &609357699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609357694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670b093966cdb5b44b2f088efcec3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 121ac070b3e395d4ebe6f235712ccfa4, type: 3}
+  hoverSprite: {fileID: 21300000, guid: 068cd0dca7bec754fb78e41f87eb089f, type: 3}
 --- !u!1 &652003930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2377,7 @@ GameObject:
   - component: {fileID: 652003934}
   - component: {fileID: 652003933}
   - component: {fileID: 652003932}
+  - component: {fileID: 652003935}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -2370,7 +2401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390.4223, y: -156.07394}
+  m_AnchoredPosition: {x: -321, y: -156.07394}
   m_SizeDelta: {x: 188, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652003932
@@ -2467,6 +2498,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652003930}
   m_CullTransparentMesh: 1
+--- !u!114 &652003935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652003930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670b093966cdb5b44b2f088efcec3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 6404e73a78654534383a3ca65e6687a3, type: 3}
+  hoverSprite: {fileID: 21300000, guid: bca30781cdddcf24eaa01bcc8f18b19a, type: 3}
 --- !u!1 &702179882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,7 +2714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &965880622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3303,7 +3348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 225.0445, y: -97.54059}
+  m_AnchoredPosition: {x: 134, y: -97.54059}
   m_SizeDelta: {x: 353, y: 527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495524659
@@ -3608,13 +3653,14 @@ GameObject:
   - component: {fileID: 1744608487}
   - component: {fileID: 1744608486}
   - component: {fileID: 1744608485}
+  - component: {fileID: 1744608488}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1744608484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3728,6 +3774,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744608483}
   m_CullTransparentMesh: 1
+--- !u!114 &1744608488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744608483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670b093966cdb5b44b2f088efcec3e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: c63f4aaab5d1dfa4aa97f035d812f97e, type: 3}
+  hoverSprite: {fileID: 21300000, guid: 306e49758ba1e954bbbea02c1bc22f57, type: 3}
 --- !u!1 &1748331759
 GameObject:
   m_ObjectHideFlags: 0
